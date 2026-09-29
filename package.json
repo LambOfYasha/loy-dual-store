@@ -1,0 +1,61 @@
+{
+  "name": "@lambofyasha/loy-dual-store",
+  "version": "1.0.0",
+  "description": "Postgres plus Mongo for LOY apps. Editorial rows stay in Postgres. Community documents stay in Mongo. Writes are never mirrored.",
+  "author": "LambOfYasha Software",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambOfYasha/loy-dual-store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LambOfYasha/loy-dual-store/issues"
+  },
+  "homepage": "https://github.com/LambOfYasha/loy-dual-store#readme",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test/boundary.test.mjs",
+    "prepublishOnly": "npm run test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "mongodb": "^6.16.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/pg": "^8.11.11",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.0"
+  },
+  "keywords": [
+    "lambofyasha",
+    "postgres",
+    "mongodb",
+    "dual-store",
+    "payload",
+    "loy"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
